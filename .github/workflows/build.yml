@@ -1,5 +1,5 @@
 ---
-    name: Build and test
+    name: Build, lint and test
     on:
       push:
         branches:
@@ -14,3 +14,10 @@
             run: |
               ls ${{ github.workspace }}
           - run: echo "This job's status is ${{ job.status }}."
+          - name: Set up NodeJS version 20
+            uses: actions/setup-node@v4
+            with:
+              node-version: 20
+          - run: yarn build
+          - run: yarn lint
+          - run: yarn test
