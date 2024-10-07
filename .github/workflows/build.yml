@@ -1,5 +1,5 @@
 ---
-    name: Linting and testing
+    name: Linting and Prettier
     on:
       push:
         branches:
@@ -20,3 +20,6 @@
               node-version: 20
           - run: yarn install
           - run: yarn lint
+          - name: Prettier Fix
+            uses: WorkOfStan/prettier-fix@v1.0.0
+      
