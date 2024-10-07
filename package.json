@@ -23,7 +23,8 @@
         "start": "env-cmd nodemon",
         "test": "env-cmd -f .env.test jest --runInBand",
         "test:coverage": "env-cmd -f .env.test jest --runInBand --coverage",
-        "lint": "npx eslint . --fix"
+        "lint": "npx eslint . --fix",
+        "format": "prettier --write ."
     },
     "devDependencies": {
         "@eslint/js": "^9.8.0",

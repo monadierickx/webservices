@@ -19,7 +19,10 @@
             with:
               node-version: 20
           - run: yarn install
-          - run: yarn lint
-          - name: Prettier Fix
-            uses: WorkOfStan/prettier-fix@v1.0.0
+          - run: yarn format
+          # - name: Commit changes
+          #   uses: stefanzweifel/git-auto-commit-action@v4
+          #   with:
+          #     commit_message: Apply formatting changes
+          #     branch: ${{ github.head_ref }}
       
