@@ -1,23 +1,22 @@
 ---
-    name: Linting
-    on:
-      push:
-        branches:
-          - main
-    jobs:
-      build:
-        runs-on: ubuntu-latest
-        steps:
-          - name: Check out repository code
-            uses: actions/checkout@v3
-          - name: List files in the repository
-            run: |
-              ls ${{ github.workspace }}
-          - run: echo "This job's status is ${{ job.status }}."
-          - name: Set up NodeJS version 20
-            uses: actions/setup-node@v4
-            with:
-              node-version: 20
-          - run: yarn install
-          - run: yarn format
-      
+  name: Linting and testing
+  on:
+    push:
+      branches:
+        - main
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Check out repository code
+          uses: actions/checkout@v3
+        - name: List files in the repository
+          run: |
+            ls ${{ github.workspace }}
+        - run: echo "This job's status is ${{ job.status }}."
+        - name: Set up NodeJS version 20
+          uses: actions/setup-node@v4
+          with:
+            node-version: 20
+        - run: yarn install
+        - run: yarn lint
